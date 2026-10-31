@@ -1,11 +1,34 @@
-<script setup></script>
+<script setup>
+import Chat from './components/Chat.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-</template>
+  <div class="tiktok-page">
+    <header class="topbar">
+      <h1>
+        <span class="tiktok-icon">♪</span>
+        TikTok
+      </h1>
+    </header>
 
-<style scoped></style>
+    <main class="layout">
+      <section class="video-section">
+        <div class="video-background">
+          <div class="video-placeholder">
+            <span class="play-button">▶</span>
+            <p>Video preview</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="video-description">
+          <h2>sami2bx</h2>
+          <p>No space on Metro? 🦄</p>
+        </section>
+
+        <Chat />
+      </aside>
+    </main>
+  </div>
+</template>
