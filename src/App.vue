@@ -20,13 +20,13 @@ import Chat from './components/Chat.vue'
     allow="fullscreen"
     allowfullscreen
   ></iframe>
-</div>
+      </div>
       </section>
 
       <aside class="sidebar">
         <section class="video-description">
-          <h2>sami2bx</h2>
-          <p>No space on Metro? 🦄</p>
+            <h2>DisneyNouckie</h2>
+            <p>Sharing a little Disney magic ✨</p>
         </section>
 
         <Chat />
