@@ -1,5 +1,6 @@
+```javascript
 <script setup>
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, onUnmounted } from 'vue'
 
 const messages = reactive([])
 const user = ref('')
@@ -7,7 +8,9 @@ const text = ref('')
 
 const API_URL = 'https://lab5-p379.onrender.com/api/v1/messages/'
 
-onMounted(async () => {
+let refreshInterval
+
+async function fetchMessages() {
   try {
     const response = await fetch(API_URL)
 
@@ -16,12 +19,28 @@ onMounted(async () => {
     }
 
     const data = await response.json()
-    const fetchedMessages = Array.isArray(data) ? data : data.messages || []
+    const fetchedMessages = Array.isArray(data)
+      ? data
+      : data.messages || []
 
-    messages.push(...fetchedMessages.reverse())
+    // Werk de bestaande reactieve lijst bij
+    messages.splice(0, messages.length, ...fetchedMessages.reverse())
   } catch (error) {
     console.error('Fout bij het ophalen:', error)
   }
+}
+
+onMounted(() => {
+  // Berichten ophalen bij het openen van de component
+  fetchMessages()
+
+  // Om de 5 seconden controleren op nieuwe berichten
+  refreshInterval = setInterval(fetchMessages, 5000)
+})
+
+onUnmounted(() => {
+  // Stop de automatische updates wanneer de component verdwijnt
+  clearInterval(refreshInterval)
 })
 
 async function addMessage() {
@@ -30,7 +49,6 @@ async function addMessage() {
   const newMessage = {
     user: user.value.trim(),
     text: text.value.trim()
-    
   }
 
   try {
@@ -48,6 +66,7 @@ async function addMessage() {
 
     const savedMessage = await response.json()
 
+    // Toon het nieuwe bericht meteen
     messages.unshift(savedMessage)
 
     text.value = ''

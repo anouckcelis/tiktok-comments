@@ -92,20 +92,100 @@ body {
   font-size: 14px;
 }
 
+/* Commentssectie */
 .chat {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   min-height: 400px;
-  border: 5px solid #fe2c55;
-  border-radius: 4px;
   padding: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
 }
 
 .chat h2 {
+  margin: 0 0 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  color: #161823;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.chat form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat input,
+.chat textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #111;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.chat input:focus,
+.chat textarea:focus {
+  border-color: #fe2c55;
+  background: #fff;
+}
+
+.chat textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.chat button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #fe2c55;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat button:hover {
+  background: #e5254b;
+}
+
+.messages {
+  flex: 1;
+  min-height: 0;
+  margin-top: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  overflow-wrap: anywhere;
+}
+
+.message strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #161823;
+  font-size: 14px;
+}
+
+.message p {
   margin: 0;
-  text-align: center;
-  color: #fe2c55;
-  font-size: 28px;
-  font-weight: normal;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
 }
 
 .video-background iframe {
@@ -133,5 +213,9 @@ body {
 
   .sidebar {
     padding: 15px 0;
+  }
+
+  .chat {
+    min-height: 400px;
   }
 }
