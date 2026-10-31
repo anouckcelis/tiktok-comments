@@ -1,4 +1,3 @@
-```javascript
 <script setup>
 import { reactive, ref, onMounted, onUnmounted } from 'vue'
 
