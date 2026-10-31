@@ -14,11 +14,13 @@ import Chat from './components/Chat.vue'
     <main class="layout">
       <section class="video-section">
         <div class="video-background">
-          <div class="video-placeholder">
-            <span class="play-button">▶</span>
-            <p>Video preview</p>
-          </div>
-        </div>
+  <iframe
+    src="https://www.tiktok.com/player/v1/7702793187370241313"
+    title="DisneyNouckie TikTok-video"
+    allow="fullscreen"
+    allowfullscreen
+  ></iframe>
+</div>
       </section>
 
       <aside class="sidebar">

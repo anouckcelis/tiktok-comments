@@ -42,16 +42,17 @@ body {
 
 .video-section {
   min-width: 0;
-  background: #eee;
+  background: #fff;
 }
 
 .video-background {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 600px;
   height: calc(100vh - 50px);
-  background: linear-gradient(135deg, #aaa, #555);
+  background: #fff;
+  overflow: hidden;
 }
 
 .video-placeholder {
@@ -105,6 +106,15 @@ body {
   color: #fe2c55;
   font-size: 28px;
   font-weight: normal;
+}
+
+.video-background iframe {
+  width: 100%;
+  max-width: 445px;
+  height: 100%;
+  min-height: 600px;
+  border: none;
+  background: #000;
 }
 
 @media (max-width: 700px) {
